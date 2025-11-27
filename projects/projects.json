@@ -2,7 +2,7 @@
   {
     "name": "Device Prediction System",
     "desc": "A machine learning model that predicts the price of second-hand electronic devices based on their specifications and condition.",
-    "image": "notystackandroid",
+    "image": "mobile",
     "category": "prediction",
     "links": {
       "view": "https://second-hand-mobile-tablet-prediction-app.onrender.com",
@@ -12,7 +12,7 @@
   {
     "name": "Travel Recommendation System",
     "desc": "A travel recommendation system that suggests travel destinations based on user preferences using machine learning.",
-    "image": "instagrammern",
+    "image": "travel",
     "category": "recommend",
     "links": {
       "view": "https://travelrecommendation19.streamlit.app/",
@@ -22,11 +22,21 @@
   {
     "name": "Movie Recommendation System",
     "desc": "A movie recommendation system that suggests movies based on user preferences using machine learning.",
-    "image": "movierecommender",
+    "image": "movie",
     "category": "recommend",
     "links": {
-      "view": "https://flipkartwebs.herokuapp.com/",
+      "view": "",
       "code": "https://github.com/ChaliseRajesh19/Movie-Recommendation-System"
+    }
+  },
+  {
+    "name": "NPL Dashboard(2025)",
+    "desc": "A comprehensive dashboard for the Nepal Premier League (NPL) that provides real-time statistics, player performance analysis, and match insights using data visualization techniques.",
+    "image": "NPLlogo",
+    "category": "basicweb",
+    "links": {
+      "view": "https://npl-dashboard.onrender.com",
+      "code": "https://github.com/ChaliseRajesh19/NPL-Dashboard.git"
     }
   }
 ]
