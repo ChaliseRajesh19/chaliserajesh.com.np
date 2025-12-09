@@ -102,7 +102,7 @@ $(document).ready(function () {
 
     // Typed.js effect
     var typed = new Typed(".typing-text", {
-        strings: ["Computer Engineering ", "AI/ML Engineering ", "Deep Learning ", "Neural Networking"],
+        strings: ["Machine Learning", "Artificial Intelligence", "Deep Learning"],
         loop: true,
         typeSpeed: 50,
         backSpeed: 25,
@@ -119,20 +119,35 @@ $(document).ready(function () {
         return data;
     }
 
-    function showSkills(skills) {
-        let skillsContainer = $("#skillsContainer");
-        let skillHTML = "";
-        skills.forEach(skill => {
-            skillHTML += `
-            <div class="bar">
-                  <div class="info">
-                    <img src=${skill.icon} alt="skill" />
-                    <span>${skill.name}</span>
-                  </div>
-                </div>`;
+   const skillItems = document.querySelectorAll('.skill-item');
+
+    skillItems.forEach(item => {
+    const box = item.querySelector('.skill-box');
+    const details = item.querySelector('.skill-details');
+
+    
+    box.addEventListener('click', () => {
+        // Collapse all other skill details
+        skillItems.forEach(i => {
+            if (i !== item) {
+                i.querySelector('.skill-details').style.maxHeight = null;
+                i.querySelector('.arrow').textContent = '⌄'; // reset arrow
+            }
         });
-        skillsContainer.html(skillHTML);
-    }
+
+        // Toggle current skill details
+        if (details.style.maxHeight) {
+            details.style.maxHeight = null;
+            box.querySelector('.arrow').textContent = '⌄';
+        } else {
+            details.style.maxHeight = details.scrollHeight + "px";
+            box.querySelector('.arrow').textContent = '⌃';
+        }
+    });
+
+
+    });
+
 
     function showProjects(projects) {
         let projectsContainer = $("#work .box-container");

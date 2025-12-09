@@ -459,76 +459,119 @@ header .navbar ul li a:hover {
 /* about section ends */
 
 /* skills section starts */
-.skills {
-  min-height: 90vh;
-  background: linear-gradient(to bottom, #57059e, #4a00e0);
+/* ================= SKILLS SECTION ================= */
+#skills {
+text-align: center;
+padding: 70px 0;
+background: #3d3db6;
+font-family: "Poppins", sans-serif;
+padding-top: 60px;
 }
-.skills h2 {
-  color: #fff;
+
+.skills-title {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 50px;  /* increase this space */
+  margin-top: 30px;      /* if you want space from top of page */
+  color: #100202;
 }
-.skills .heading span {
-  color: rgb(255, 230, 0);
+.skills-title span {
+    color: #FFD700; /* gold yellow */
 }
-.skills .container {
-  background: rgba(0, 0, 22, 0.4);
-  color: #fff;
-  border-radius: 1rem;
-  padding: 2rem;
-  width: 90%;
-  margin: auto;
-  margin-top: 2rem;
+
+
+.skills-subtitle {
+font-size: 18px;
+color: #f0f0f0;
+margin-bottom: 3rem;
 }
-.skills .container .row {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  flex-wrap: wrap;
-  gap: 1.8rem;
+
+/* ================= SKILLS GRID ================= */
+.skills-container {
+width: 900px;
+max-width: 90%;
+margin: auto;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+gap: 40px 50px;
+align-items: start; /* prevents stretching of row items */
 }
-.skills .container .bar {
-  margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  background: rgba(0, 0, 22, 0.9);
-  transition: 0.2s;
+
+/* ================= SKILL CARD ================= */
+.skill-item {
+background: #fff;
+border-radius: 12px;
+padding: 30px;
+box-shadow: 0 0 20px rgba(0,0,0,0.05);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+display: flex;
+flex-direction: column;
+align-items: stretch; /* ensures individual height */
 }
-.skills .container .bar:hover {
-  box-shadow: 0 8px 10px rgba(0, 2, 68, 0.8) !important;
-  background-color: rgba(0, 0, 0, 0.9) !important;
+
+.skill-item:hover {
+transform: translateY(-5px);
+box-shadow: 0 0 30px rgba(0,0,0,0.1);
 }
-.skills .container .bar .info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
+
+/* ================= TITLE BAR ================= */
+.skill-box {
+display: flex;
+justify-content: space-between;
+align-items: center;
+cursor: pointer;
+font-weight: 600;
+font-size: 18px;
 }
-.skills .container .bar .info i {
-  font-size: 4rem;
+
+.skill-icon {
+width: 40px;
+margin-right: 15px;
 }
-.skills .container .bar .info span {
-  font-size: 2rem;
-  font-weight: 500;
-  font-family: "Poppins";
-  margin-left: 0.5rem;
+
+.arrow {
+font-size: 26px;
+transition: transform 0.3s ease;
 }
-/* skills media queries starts*/
-@media screen and (max-width: 600px) {
-  .skills .container {
-    padding: 0;
-    margin: 0;
-  }
-  .skills .container .row {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 1rem;
-    padding: 2rem 0.2rem 2rem 0.2rem;
-    gap: 1rem;
-  }
-  .skills .container {
-    margin-top: 5px;
-    width: 100%;
-  }
+
+/* ================= ACCORDION CONTENT ================= */
+.skill-details {
+overflow: hidden;
+max-height: 0;
+transition: max-height 0.4s ease;
+margin-top: 15px;
 }
+
+/* Arrow rotation when active */
+.skill-box.active .arrow {
+transform: rotate(180deg);
+}
+
+/* ================= SKILL ROWS ================= */
+.skill-detail {
+display: flex;
+justify-content: space-between;
+padding: 6px 0;
+}
+
+/* ================= PROGRESS BAR ================= */
+.bar {
+width: 100%;
+height: 6px;
+background: #e6dbff;
+border-radius: 5px;
+overflow: hidden;
+margin-bottom: 12px;
+}
+
+.bar div {
+height: 100%;
+background: #7a5cff;
+border-radius: 5px;
+transition: width 0.5s ease;
+}
+
+
 /* skills media queries ends*/
 /* skills section ends */
 
@@ -1226,18 +1269,16 @@ form .button-area {
 
 .certificates {
   padding: 60px 20px;
-  background-color: #5c65b6;
+  background-color: #535460;
   text-align: center;
 }
 
 .certificates .heading {
   font-size: 4rem;
-  color: #dce8e7;
-  margin-bottom: 30px;
+  color: #f1f6f6;
+  margin-bottom: 60px;
 }
-.certificates .heading span {
-  color: #ffeb3b;
-}
+
 .certificates-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 per row */
