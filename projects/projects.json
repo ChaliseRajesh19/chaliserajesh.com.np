@@ -2,7 +2,7 @@
   {
     "name": "Device Prediction System",
     "desc": "A machine learning model that predicts the price of second-hand electronic devices based on their specifications and condition.",
-    "image": "mobile",
+    "image": "device",
     "category": "prediction",
     "links": {
       "view": "https://second-hand-mobile-tablet-prediction-app.onrender.com",
@@ -10,13 +10,13 @@
     }
   },
   {
-    "name": "Travel Recommendation System",
-    "desc": "A travel recommendation system that suggests travel destinations based on user preferences using machine learning.",
-    "image": "travel",
-    "category": "recommend",
+    "name": "Weather App",
+    "desc": "A weather application that provides current weather information and forecasts based on user location.",
+    "image": "weather-app-preview",
+    "category": "basicweb",
     "links": {
-      "view": "https://travelrecommendation19.streamlit.app/",
-      "code": "https://github.com/ChaliseRajesh19/Travel-Recommendation-System.git"
+      "view": "https://chaliserajesh19.github.io/Weather-App/",
+      "code": "https://github.com/ChaliseRajesh19/Weather-App.git"
     }
   },
   {
@@ -32,11 +32,21 @@
   {
     "name": "NPL Dashboard(2025)",
     "desc": "A comprehensive dashboard for the Nepal Premier League (NPL) that provides real-time statistics, player performance analysis, and match insights using data visualization techniques.",
-    "image": "NPLlogo",
+    "image": "pointstable",
     "category": "basicweb",
     "links": {
       "view": "https://npl-dashboard.onrender.com",
       "code": "https://github.com/ChaliseRajesh19/NPL-Dashboard.git"
+    }
+  },
+  {
+    "name": "Portfolio Website",
+    "desc": "A personal portfolio website to showcase projects, skills, and experience.", 
+    "image": "portfolioimg",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
     }
   }
 ]
