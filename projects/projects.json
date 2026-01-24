@@ -20,16 +20,6 @@
     }
   },
   {
-    "name": "Movie Recommendation System",
-    "desc": "A movie recommendation system that suggests movies based on user preferences using machine learning.",
-    "image": "movie",
-    "category": "recommend",
-    "links": {
-      "view": "",
-      "code": "https://github.com/ChaliseRajesh19/Movie-Recommendation-System"
-    }
-  },
-  {
     "name": "NPL Dashboard(2025)",
     "desc": "A comprehensive dashboard for the Nepal Premier League (NPL) that provides real-time statistics, player performance analysis, and match insights using data visualization techniques.",
     "image": "pointstable",
