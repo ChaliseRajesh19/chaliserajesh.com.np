@@ -1,101 +1,497 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link id='favicon' rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
-    <title>Projects | Rajesh Chalise</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050510">
+  <title>Projects | Rajesh Chalise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    :root {
+      --bg: #050510;
+      --surface: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --text: #f5f7ff;
+      --muted: #b7bdd5;
+      --accent: #00d4ff;
+      --accent-2: #7c3aed;
+      --radius: 18px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { font-size: 62.5%; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: linear-gradient(180deg, #050510 0%, #060714 40%, #050510 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 3.2rem), 1180px);
+      margin-inline: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(5,5,16,0.78);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.6rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .brand i {
+      width: 3.8rem;
+      height: 3.8rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #081018;
+    }
+
+    .nav {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 1rem 1.4rem;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .nav a:hover, .nav a.active {
+      color: #fff;
+      background: rgba(255,255,255,.06);
+      box-shadow: inset 0 0 0 1px rgba(0,212,255,.2), 0 0 24px rgba(0,212,255,.12);
+    }
+
+    .hero {
+      padding: 5.5rem 0 2.5rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      padding: .8rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(0,212,255,.08);
+      border: 1px solid rgba(0,212,255,.2);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 1.3rem 0 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 5vw, 4.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 12ch;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p,
+    .section-heading p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.5rem;
+      max-width: 72rem;
+    }
+
+    .section {
+      padding: 1.5rem 0 5rem;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2.4rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 3.5vw, 3.8rem);
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .8rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn,
+    .backbtn .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .8rem;
+      padding: .9rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover,
+    .backbtn .btn:hover {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #071018;
+      box-shadow: 0 0 26px rgba(0,212,255,.2);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .project-card {
+      position: relative;
+    }
+
+    .project-thumb {
+      min-height: 14rem;
+      background: linear-gradient(135deg, rgba(0,212,255,.14), rgba(124,58,237,.14));
+      position: relative;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .9;
+    }
+
+    .featured {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: .45rem .8rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #061018;
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .project-body {
+      padding: 1.25rem;
+    }
+
+    .project-body h3 {
+      margin: 0 0 .55rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+    }
+
+    .project-body p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 1.3rem;
+    }
+
+    .tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tech {
+      padding: .5rem .8rem;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      color: #f8fbff;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+    }
+
+    .project-links a {
+      flex: 1 1 10rem;
+    }
+
+    .project-links .btn {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .7rem;
+      padding: .95rem 1.1rem;
+      border-radius: 1.1rem;
+      border: 1px solid transparent;
+      font-size: 1.2rem;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+
+    .project-links .btn-secondary {
+      color: #fff;
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.1);
+    }
+
+    .project-links .btn-primary {
+      color: #061018;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    .backbtn {
+      display: flex;
+      justify-content: center;
+      margin-top: 2.2rem;
+    }
+
+    .footer {
+      padding: 2.5rem 0 3.5rem;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .floating-particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      width: .6rem;
+      height: .6rem;
+      border-radius: 50%;
+      background: rgba(0,212,255,.65);
+      box-shadow: 0 0 18px rgba(0,212,255,.55);
+      animation: drift linear infinite;
+      opacity: .8;
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0,0,0) scale(1); }
+      to { transform: translate3d(var(--dx), -120vh, 0) scale(.6); }
+    }
+
+    @media (max-width: 1100px) {
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 980px) {
+      html { font-size: 58%; }
+      .project-grid { grid-template-columns: 1fr; }
+      .nav { display: none; }
+      .nav.open {
+        display: flex;
+        position: absolute;
+        top: 7rem;
+        left: 1.6rem;
+        right: 1.6rem;
+        padding: 1rem;
+        background: rgba(5,5,16,.96);
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 1.8rem;
+        box-shadow: var(--shadow);
+      }
+    }
+
+    @media (max-width: 560px) {
+      html { font-size: 56%; }
+      .project-thumb { min-height: 12.5rem; }
+    }
+  </style>
 </head>
-<body oncontextmenu="return false">
+<body>
+  <div class="floating-particles" id="particles"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/chaliserajesh.com.np/index.html"><i class="fas fa-robot"></i>ChaliseAI</a>
+      <nav class="nav" id="navMenu">
+        <a href="/chaliserajesh.com.np/index.html#home">Home</a>
+        <a href="/chaliserajesh.com.np/index.html#about">About</a>
+        <a href="/chaliserajesh.com.np/index.html#skills">Skills</a>
+        <a href="/chaliserajesh.com.np/projects/index.html" class="active">Projects</a>
+        <a href="/chaliserajesh.com.np/experience/index.html">Experience</a>
+        <a href="/chaliserajesh.com.np/index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- navbar starts -->
-<header>
-        <a href="/" class="logo"><i class="fab fa-robot"></i> Chalise </a>
-
-        <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <ul>
-            <li><a href="/#home">Home</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#skills">Skills</a></li>
-            <li><a href="/#education">Education</a></li>
-            <li><a class="active" href="/#work">Project</a></li>
-            <li><a href="/#certificates">Certificates</a></li>
-            <li><a href="/#experience">Experience</a></li>
-            <li><a href="/#contact">Contact</a></li>
-            </ul>
-        </nav>
-</header>
-<!-- navbar ends -->
-
-<!-- work project section starts -->
-<section class="work" id="work">
-
-  <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
-  
-  <div id="filters" class="button-group">
-    <button class="btn is-checked" data-filter="*">All Projects</button>
-    <button class="btn" data-filter=".recommend">Recommendation System</button>
-    <button class="btn" data-filter=".prediction">Prediction System</button>
-    <button class="btn" data-filter=".basicweb">Basic Web</button>
-    
-  </div>
-
-  <div class="box-container">
-
-    <!-- <div class="box tilt">
-      <img src="/assets/images/projects/agecalc.PNG" alt="" />
-      <div class="content">
-        <div class="tag">
-        <h3>Portfolio Website</h3>
+  <main>
+     <section class="section">
+      <div class="container">
+        <div class="filter-row" id="filters">
+          <button class="filter-btn active" data-filter="*">All Projects</button>
+          <button class="filter-btn" data-filter=".ai">AI Systems</button>
+          <button class="filter-btn" data-filter=".web">Web Apps</button>
+          <button class="filter-btn" data-filter=".data">Data / ML</button>
         </div>
-        <div class="desc">
-          <p>Personal portfolio website. Don't need much info about it, just scroll down. You're here only!</p>
-          <div class="btns">
-            <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="#" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-          </div>
+
+        <div class="project-grid" id="projectGrid">
+          <article class="card project-card ai">
+            <div class="project-thumb"><span class="featured">Featured</span><img src="/chaliserajesh.com.np/assets/images/projects/studybuddy.png" alt="AI Research Assistant"></div>
+            <div class="project-body">
+              <h3>AI STUDY BUDDY</h3>
+              <p>RAG-based assistant built with LangChain and ChromaDB that answers questions over custom documents with grounded responses.</p>
+              <div class="tech-row"><span class="tech">LangChain</span><span class="tech">ChromaDB</span><span class="tech">RAG</span><span class="tech">Python</span></div>
+              <div class="project-links"><a class="btn btn-secondary" href="https://github.com/ChaliseRajesh19/PDF-Chatbot-using-Langhchain.git" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a><a class="btn btn-primary" href="/index.html#contact"><i class="fas fa-external-link-alt"></i> Live Demo</a></div>
+            </div>
+          </article>
+
+          <article class="card project-card ai">
+            <div class="project-thumb"><span class="featured">Featured</span><img src="/chaliserajesh.com.np/assets/images/projects/exambuddy.jpg" alt="Autonomous Task Agent"></div>
+            <div class="project-body">
+              <h3>AI EXAM BUDDY</h3>
+              <p>An toolcalling AI agent using LangChain that uses tools, and executes workflows autonomously.</p>
+              <div class="tech-row"><span class="tech">LangChain</span><span class="tech">Agentic AI</span><span class="tech">Tool Use</span><span class="tech">LLMs</span></div>
+              <div class="project-links"><a class="btn btn-secondary" href="https://github.com/ChaliseRajesh19/ToolCalling-AGENT-USING-LANGCHAIN.git" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a><a class="btn btn-primary" href="/index.html#contact"><i class="fas fa-external-link-alt"></i> Live Demo</a></div>
+            </div>
+          </article>
+
+          <article class="card project-card data">
+            <div class="project-thumb"><img src="/chaliserajesh.com.np/assets/images/projects/device.png" alt="Device Prediction System"></div>
+            <div class="project-body">
+              <h3>Device Prediction System</h3>
+              <p>Machine learning model that predicts second-hand device pricing from specs and condition data.</p>
+              <div class="tech-row"><span class="tech">Machine Learning</span><span class="tech">Python</span><span class="tech">Prediction</span></div>
+              <div class="project-links"><a class="btn btn-primary" href="https://second-hand-mobile-tablet-prediction-app.onrender.com" target="_blank" rel="noreferrer"><i class="fas fa-eye"></i> Live Demo</a><a class="btn btn-secondary" href="https://github.com/ChaliseRajesh19/Second-Hand-Mobile-Tablet-Prediction-App.git" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a></div>
+            </div>
+          </article>
+
+          <article class="card project-card web">
+            <div class="project-thumb"><img src="/chaliserajesh.com.np/assets/images/projects/weather-app-preview.png" alt="Weather App"></div>
+            <div class="project-body">
+              <h3>Weather App</h3>
+              <p>A clean weather application delivering live conditions and forecasts with a polished dashboard-style interface.</p>
+              <div class="tech-row"><span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span></div>
+              <div class="project-links"><a class="btn btn-primary" href="https://chaliserajesh19.github.io/Weather-App/" target="_blank" rel="noreferrer"><i class="fas fa-eye"></i> Live Demo</a><a class="btn btn-secondary" href="https://github.com/ChaliseRajesh19/Weather-App.git" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a></div>
+            </div>
+          </article>
+
+          <article class="card project-card web">
+            <div class="project-thumb"><img src="/chaliserajesh.com.np/assets/images/projects/pointstable.png" alt="NPL Dashboard"></div>
+            <div class="project-body">
+              <h3>NPL Dashboard 2025</h3>
+              <p>Sports analytics dashboard with real-time stats, player insights, and clean data presentation.</p>
+              <div class="tech-row"><span class="tech">Data Visualization</span><span class="tech">Python</span><span class="tech">Dashboard</span></div>
+              <div class="project-links"><a class="btn btn-primary" href="https://npl-dashboard.onrender.com" target="_blank" rel="noreferrer"><i class="fas fa-eye"></i> Live Demo</a><a class="btn btn-secondary" href="https://github.com/ChaliseRajesh19/NPL-Dashboard.git" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a></div>
+            </div>
+          </article>
+
+          <article class="card project-card web">
+            <div class="project-thumb"><img src="/chaliserajesh.com.np/assets/images/projects/portfolioimg.png" alt="Portfolio Website"></div>
+            <div class="project-body">
+              <h3>Portfolio Website</h3>
+              <p>A personal portfolio website to showcase projects, skills, and experience.</p>
+              <div class="tech-row"><span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span></div>
+              <div class="project-links"><a class="btn btn-primary" href="/chaliserajesh.com.np/index.html" target="_blank" rel="noreferrer"><i class="fas fa-eye"></i> Live Demo</a><a class="btn btn-secondary" href="https://github.com/ChaliseRajesh19" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a></div>
+            </div>
+          </article>
         </div>
+
+        <div class="backbtn"><a class="btn btn-secondary" href="/chaliserajesh.com.np/index.html#projects"><i class="fas fa-arrow-left"></i> Back to Home</a></div>
       </div>
-    </div> -->   
+    </section>
+  </main>
 
-  </div>
+  <footer class="footer">
+    <div class="container">Designed to showcase learning projects, AI experiments, and practical web work.</div>
+  </footer>
 
-  <div class="backbtn">
-    <a href="/#work" class="btn">
-        <i class="fas fa-arrow-left"></i>
-        <span>Back to Home</span>
-  </a>
-  </div>
+  <script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        buttons.forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+        cards.forEach((card) => {
+          const visible = filter === '*' || card.classList.contains(filter.slice(1));
+          card.style.display = visible ? 'block' : 'none';
+        });
+      });
+    });
 
-</section>
-<!-- work project section ends -->
-
-<!-- scroll top btn -->
-<a href="#work" class="fas fa-angle-up" id="scroll-top"></a>
-<!-- scroll back to top -->
-
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
-<!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- vanilla tilt.js links -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- scroll reveal anim -->
-<script src="https://unpkg.com/scrollreveal"></script>
-
-<!-- isotope filter plugin cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
-
-<script src="./script.js"></script>
-
+    const particles = document.getElementById('particles');
+    for (let i = 0; i < 18; i++) {
+      const particle = document.createElement('span');
+      particle.className = 'particle';
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.bottom = `${Math.random() * 100}%`;
+      particle.style.width = `${0.35 + Math.random() * 0.5}rem`;
+      particle.style.height = particle.style.width;
+      particle.style.setProperty('--dx', `${(Math.random() * 160 - 80).toFixed(0)}px`);
+      particle.style.animationDuration = `${14 + Math.random() * 16}s`;
+      particle.style.animationDelay = `${Math.random() * 8}s`;
+      particles.appendChild(particle);
+    }
+  </script>
 </body>
 </html>

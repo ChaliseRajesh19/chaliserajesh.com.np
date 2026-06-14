@@ -1,655 +1,1698 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050510">
+  <title>Rajesh Chalise | Aspiring AI Engineer</title>
+  <meta name="description" content="Rajesh Chalise is an aspiring AI engineer learning GenAI, LLMs, agentic AI and practical system design.">
+  <meta name="keywords" content="Rajesh Chalise, Aspiring AI Engineer, GenAI, LLMs, Agentic AI, RAG, LangChain, Portfolio">
+  <meta name="author" content="Rajesh Chalise">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rajesh Chalise | Aspiring AI Engineer">
+  <meta property="og:description" content="Learning to build intelligent systems with LLMs, AI Agents, and Generative AI.">
+  <meta property="og:image" content="https://chaliserajesh.com.np/assets/images/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    :root {
+      --bg: #050510;
+      --bg-soft: #0a0a14;
+      --bg-elevated: rgba(11, 12, 24, 0.72);
+      --surface: rgba(255, 255, 255, 0.06);
+      --surface-strong: rgba(255, 255, 255, 0.1);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f5f7ff;
+      --muted: #b7bdd5;
+      --accent: #00d4ff;
+      --accent-2: #7c3aed;
+      --accent-3: #4f46e5;
+      --good: #4ade80;
+      --warn: #fb7185;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --container: 1180px;
+      --header-h: 80px;
+    }
 
-    <!-- Primary SEO Tags -->
-    <title>Rajesh Chalise | Portfolio</title>
-    <meta name="title" content="Rajesh Chalise | AI & ML Engineer Portfolio">
-    <meta name="description" content="Explore Rajesh Chalise's personal portfolio. Computer Engineer and aspiring AI/ML Engineer showcasing projects, skills, and experience.">
-    <meta name="keywords" content="Rajesh Chalise, AI Engineer, ML Engineer, Portfolio, Data Science, Machine Learning Projects, Python, AI Projects, Personal Portfolio">
+    * {
+      box-sizing: border-box;
+    }
 
-    <!-- Favicon -->
-    <link id="favicon" rel="shortcut icon" href="https://chaliserajesh.com.np/assets/images/favicon.png" type="image/x-icon">
+    html {
+      scroll-behavior: smooth;
+      font-size: 62.5%;
+    }
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://chaliserajesh.com.np/">
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.12), transparent 22%),
+        radial-gradient(circle at 80% 10%, rgba(124, 58, 237, 0.16), transparent 20%),
+        linear-gradient(180deg, #050510 0%, #060714 40%, #050510 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chaliserajesh.com.np/">
-    <meta property="og:title" content="Rajesh Chalise | AI & ML Engineer Portfolio">
-    <meta property="og:description" content="Explore Rajesh Chalise's personal portfolio. Computer Engineer and aspiring AI/ML Engineer showcasing projects, skills, and experience.">
-    <meta property="og:image" content="https://chaliserajesh.com.np/assets/images/og-image.png">
-    <meta property="og:site_name" content="Rajesh Chalise Portfolio">
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent 80%);
+      pointer-events: none;
+      opacity: 0.22;
+      z-index: 0;
+    }
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://chaliserajesh.com.np/">
-    <meta property="twitter:title" content="Rajesh Chalise | AI & ML Engineer Portfolio">
-    <meta property="twitter:description" content="Explore Rajesh Chalise's personal portfolio. Computer Engineer and aspiring AI/ML Engineer showcasing projects, skills, and experience.">
-    <meta property="twitter:image" content="https://chaliserajesh.com.np/assets/images/og-image.png">
-    <meta property="twitter:creator" content="@IAmChalise">
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto -10% -15% auto;
+      width: 40rem;
+      height: 40rem;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.18), transparent 70%);
+      filter: blur(18px);
+      pointer-events: none;
+      z-index: 0;
+      animation: floatGlow 12s ease-in-out infinite;
+    }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    @keyframes floatGlow {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(-20px, -30px, 0) scale(1.08); }
+    }
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    <!-- Structured Data / JSON-LD for Google Rich Results -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Rajesh Chalise",
-      "url": "https://chaliserajesh.com.np/",
-      "sameAs": [
-        "https://www.linkedin.com/in/chaliserajes19",
-        "https://github.com/ChaliseRajesh19",
-        "https://twitter.com/IAmChalise",
-        "https://www.instagram.com/40se_rajesh_19/"
-      ],
-      "jobTitle": "AI & ML Engineer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Personal Portfolio"
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 3.2rem), var(--container));
+      margin-inline: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 5, 16, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .header-inner {
+      width: min(calc(100% - 3.2rem), var(--container));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+    }
+    .brand i {
+      color: var(--accent);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color :hsl(from color h s l)
+    }
+
+    .brand-mark {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.9), rgba(124, 58, 237, 0.95));
+      box-shadow: 0 0 24px rgba(0, 212, 255, 0.25);
+    }
+
+    .brand-mark svg {
+      width: 2rem;
+      height: 2rem;
+      fill: rgb(70, 24, 24);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 4.4rem;
+      height: 4.4rem;
+      border-radius: 1.2rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      display: block;
+      width: 1.8rem;
+      height: 2px;
+      border-radius: 2px;
+      background: white;
+      position: relative;
+      transition: transform 0.25s ease, top 0.25s ease, opacity 0.25s ease;
+    }
+
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    .nav-toggle span::before { top: -0.6rem; }
+    .nav-toggle span::after { top: 0.6rem; }
+
+    .nav-toggle[aria-expanded="true"] span { background: transparent; }
+    .nav-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 1rem 1.4rem;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 1.4rem;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: white;
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: inset 0 0 0 1px rgba(0, 212, 255, 0.2), 0 0 24px rgba(0, 212, 255, 0.12);
+    }
+
+    .hero {
+      position: relative;
+      padding: 7rem 0 5rem;
+      min-height: calc(100vh - var(--header-h));
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      background: rgba(0, 212, 255, 0.08);
+      color: #dffbff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero h1 {
+      margin: 1.8rem 0 1rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(3rem, 5.4vw, 5.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.55rem, 1.9vw, 1.9rem);
+      color: var(--muted);
+      max-width: 62rem;
+      line-height: 1.7;
+      margin-bottom: 2.4rem;
+    }
+
+    .typing-line {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      min-height: 3.2rem;
+      margin-bottom: 2.2rem;
+      font-size: 1.45rem;
+      color: #d9ddff;
+    }
+
+    .typing-line strong {
+      color: white;
+    }
+
+    .typing-caret {
+      width: 0.12em;
+      height: 1.8em;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(0, 212, 255, 0.8);
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+      padding: 1.35rem 2rem;
+      border-radius: 1.4rem;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 1.45rem;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      color: #061018;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 18px 40px rgba(0, 212, 255, 0.16);
+    }
+
+    .btn-secondary {
+      color: white;
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2), 0 0 30px rgba(124, 58, 237, 0.2);
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .mini-card {
+      padding: 1.4rem;
+      border-radius: 1.6rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .mini-card span {
+      color: var(--muted);
+      font-size: 1.18rem;
+      line-height: 1.5;
+    }
+
+    .social-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-row a {
+      width: 4.4rem;
+      height: 4.4rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: 0.25s ease;
+    }
+
+    .social-row a:hover {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 26px rgba(0, 212, 255, 0.3);
+      transform: translateY(-3px);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 54rem;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual-shell {
+      position: relative;
+      width: min(100%, 52rem);
+      aspect-ratio: 1 / 1;
+      border-radius: 3rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual-shell::before,
+    .visual-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,255,0.22), transparent 68%);
+      filter: blur(10px);
+      animation: orbit 18s linear infinite;
+    }
+
+    .visual-shell::before {
+      width: 28rem;
+      height: 28rem;
+      top: 10%;
+      left: 12%;
+    }
+
+    .visual-shell::after {
+      width: 16rem;
+      height: 16rem;
+      right: 12%;
+      bottom: 12%;
+      animation-direction: reverse;
+    }
+
+    @keyframes orbit {
+      from { transform: rotate(0deg) translate3d(0,0,0); }
+      to { transform: rotate(360deg) translate3d(0,0,0); }
+    }
+
+    .brain-svg {
+      width: 76%;
+      height: auto;
+      z-index: 1;
+      filter: drop-shadow(0 0 26px rgba(0, 212, 255, 0.2));
+    }
+
+    .section {
+      padding: 6rem 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 3.4rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(3rem, 4vw, 4.6rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-heading p {
+      margin: 1rem auto 0;
+      max-width: 70rem;
+      color: var(--muted);
+      font-size: 1.6rem;
+      line-height: 1.8;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-image {
+      padding: 1.6rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: calc(var(--radius) - 8px);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .about-copy {
+      padding: 2.4rem;
+    }
+
+    .about-copy h3 {
+      margin: 0 0 0.6rem;
+      font-size: 2.6rem;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .tagline {
+      display: inline-flex;
+      gap: 0.8rem;
+      align-items: center;
+      color: #dfe8ff;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      background: rgba(124, 58, 237, 0.14);
+      border: 1px solid rgba(124, 58, 237, 0.25);
+      margin-bottom: 1.8rem;
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1.6rem;
+      margin: 0 0 1.2rem;
+    }
+
+    .about-meta {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .meta-box {
+      padding: 1.4rem;
+      border-radius: 1.4rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #ebf2ff;
+      font-size: 1.4rem;
+    }
+
+    .meta-box span {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 1.1rem;
+    }
+
+    .skills-wrap {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .skill-card {
+      padding: 2rem;
+    }
+
+    .skill-card h3 {
+      margin: 0 0 1.2rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2rem;
+    }
+
+    .badge-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 1.3rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #f6f8ff;
+      font-size: 1.3rem;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .badge i {
+      color: var(--accent);
+    }
+
+    .badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.18), 0 0 20px rgba(124, 58, 237, 0.18);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-thumb {
+      min-height: 20rem;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.14), rgba(124, 58, 237, 0.14));
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.88;
+      mix-blend-mode: screen;
+    }
+
+    .featured {
+      position: absolute;
+      top: 1.4rem;
+      left: 1.4rem;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #061018;
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      box-shadow: 0 0 24px rgba(0, 212, 255, 0.2);
+    }
+
+    .project-body {
+      padding: 2rem;
+    }
+
+    .project-body h3 {
+      margin: 0 0 0.8rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2.2rem;
+    }
+
+    .project-body p {
+      margin: 0 0 1.4rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.5rem;
+    }
+
+    .tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .tech {
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      font-size: 1.2rem;
+      color: #f8fbff;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .project-links a {
+      flex: 1 1 14rem;
+    }
+
+    .project-links .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .journey-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2.4rem;
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.8rem;
+      top: 0.4rem;
+      bottom: 0.4rem;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 24px rgba(0, 212, 255, 0.3);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 1.6rem 1.6rem 1.6rem 2rem;
+      border-radius: 1.6rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -2.7rem;
+      top: 2rem;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 6px rgba(0, 212, 255, 0.12);
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.8rem;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.45rem;
+      line-height: 1.7;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .status.done { background: rgba(74, 222, 128, 0.12); color: #bbf7d0; }
+    .status.progress { background: rgba(0, 212, 255, 0.12); color: #cffafe; }
+    .status.next { background: rgba(124, 58, 237, 0.14); color: #e9d5ff; }
+
+    .banner {
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.12), rgba(124, 58, 237, 0.12));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .banner p {
+      margin: 0;
+      font-size: 1.7rem;
+      line-height: 1.7;
+      color: #f0f4ff;
+      flex: 1 1 42rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+    }
+
+    .contact-card,
+    .form-card {
+      padding: 2.2rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.4rem;
+      border-radius: 1.4rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-item i {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #051018;
+      flex: none;
+    }
+
+    .contact-item strong,
+    .contact-item span {
+      display: block;
+    }
+
+    .contact-item strong {
+      font-size: 1.45rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-item span {
+      color: var(--muted);
+      font-size: 1.35rem;
+    }
+
+    form {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .field {
+      position: relative;
+    }
+
+    .field i {
+      position: absolute;
+      top: 50%;
+      left: 1.4rem;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border-radius: 1.4rem;
+      padding: 1.35rem 1.4rem 1.35rem 4rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: white;
+      outline: none;
+      transition: 0.25s ease;
+    }
+
+    textarea {
+      min-height: 15rem;
+      resize: vertical;
+      padding-top: 1.4rem;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #8f96b2;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(0, 212, 255, 0.45);
+      box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.08);
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer {
+      position: relative;
+      padding: 3rem 0 4rem;
+      margin-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .footer-inner {
+      display: grid;
+      gap: 1.4rem;
+      justify-items: center;
+    }
+
+    .footer-copy {
+      max-width: 76rem;
+    }
+
+    .footer-copy h3 {
+      margin: 0 0 0.6rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.9rem, 2.1vw, 2.6rem);
+      color: var(--text);
+    }
+
+    .footer-copy p {
+      margin: 0;
+      font-size: 1.45rem;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      justify-content: center;
+    }
+
+    .footer-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.85rem 1.1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #f3f6ff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+    }
+
+    .footer-chip i {
+      color: var(--accent);
+    }
+
+    .footer-chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.14), 0 12px 28px rgba(0, 0, 0, 0.18);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 1.25rem;
+      padding-top: 0.2rem;
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      will-change: opacity, transform;
+    }
+
+    .scroll-reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glow-line {
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,212,255,0.6), rgba(124,58,237,0.6), transparent);
+      box-shadow: 0 0 24px rgba(0, 212, 255, 0.2);
+    }
+
+    .floating-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .particles-layer {
+      position: absolute;
+      inset: 0;
+      transform: translate3d(0,0,0);
+      will-change: transform;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 50%;
+      background: rgba(0, 212, 255, 0.65);
+      box-shadow: 0 0 18px rgba(0, 212, 255, 0.55);
+      animation: drift linear infinite;
+      opacity: 0.8;
+      will-change: transform, opacity;
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(var(--dx), -120vh, 0) scale(0.6); }
+    }
+
+    /* Neural grid behind hero visual */
+    .visual-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 20%, rgba(0,0,0,0.0), transparent 20%),
+                        repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 56px),
+                        repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 56px);
+      mix-blend-mode: overlay;
+      opacity: 0.12;
+      transform-origin: center;
+      animation: gridDrift 18s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes gridDrift {
+      0% { transform: translate3d(0,0,0) rotate(0deg) scale(1); }
+      50% { transform: translate3d(-6px,-10px,0) rotate(1deg) scale(1.01); }
+      100% { transform: translate3d(0,0,0) rotate(0deg) scale(1); }
+    }
+
+    /* Brain subtle float + tilt */
+    .brain-svg {
+      width: 76%;
+      height: auto;
+      z-index: 1;
+      filter: drop-shadow(0 0 26px rgba(0, 212, 255, 0.2));
+      transition: transform 0.18s cubic-bezier(.2,.9,.2,1);
+      transform: translateZ(0) translateY(0);
+      animation: brainFloat 8s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes brainFloat {
+      0%,100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.01); }
+    }
+
+    /* CTA micro-pulse */
+    .btn-primary { position: relative; overflow: visible; }
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 1.6rem;
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(124,58,237,0.08));
+      z-index: -1;
+      filter: blur(12px);
+      opacity: 0;
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+
+    .btn-primary.pulse::after {
+      opacity: 1;
+      transform: scale(1.04);
+      animation: pulseGlow 2.6s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0% { opacity: 0.15; transform: scale(1); }
+      50% { opacity: 0.32; transform: scale(1.06); }
+      100% { opacity: 0.15; transform: scale(1); }
+    }
+
+    @media (max-width: 980px) {
+      html { font-size: 58%; }
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .project-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual {
+        min-height: 42rem;
+      }
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+      .nav-toggle { display: inline-flex; }
+      .nav {
+        position: absolute;
+        top: calc(var(--header-h) - 6px);
+        right: 1.6rem;
+        left: 1.6rem;
+        padding: 1rem;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(5, 5, 16, 0.96);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 1.8rem;
+        box-shadow: var(--shadow);
+        transform-origin: top right;
+        transform: scale(0.98) translateY(-8px);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.22s ease;
+      }
+      .nav.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1) translateY(0);
+      }
+      .nav a {
+        width: 100%;
       }
     }
-    </script>
 
+    @media (max-width: 560px) {
+      html { font-size: 56%; }
+      .hero {
+        padding-top: 5rem;
+      }
+      .section {
+        padding: 4.5rem 0;
+      }
+      .about-meta {
+        grid-template-columns: 1fr;
+      }
+      .banner {
+        padding: 1.6rem;
+      }
+      .btn {
+        width: 100%;
+      }
+      .hero-actions,
+      .form-actions {
+        width: 100%;
+      }
+      .hero-actions .btn,
+      .form-actions .btn {
+        width: 100%;
+      }
+      .hero h1 {
+        font-size: clamp(2.8rem, 10vw, 4rem);
+      }
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/chaliserajesh.com.np/index.html"><i class="fas fa-robot"></i>ChaliseAI</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+      <nav class="nav" id="navMenu">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#journey">Journey</a>
+        <a href="#building">Building</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<body oncontextmenu="return false">
-
-<!-- pre loader -->
-<!-- <div class="loader-container">
-  <img draggable="false" src="./assets/images/preloader.gif" alt="">
-</div> -->
-
-<!-- navbar starts -->
-<header>
-        <a href="#home" class="logo"><i class="fa-solid fa-microchip-ai"></i>Chalise</a>
-
-        <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <ul>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#work">Project</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <!-- <li><a href="#experience">Experience</a></li> -->
-            <li><a href="#contact">Contact</a></li>
-            
-            </ul>
-        </nav>
-</header>
-<!-- navbar ends -->
-
-
-<!-- hero section starts -->
-<section class="home" id="home">
-    <div id="particles-js"></div>
-
-    <div class="content">
-    <h2>Hi There,<br/> I'm Rajesh <span>Chalise</span></h2>
-    <p>i am into <span class="typing-text"></span></p>
-    <a href="#about" class="btn"><span>About Me</span>
-      <i class="fas fa-arrow-circle-down"></i>
-    </a>
-    <div class="socials">
-        <ul class="social-icons">
-          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/chaliserajes19/" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
-          <li><a class="github" aria-label="GitHub" href="https://github.com/ChaliseRajesh19" target="_blank"><i class="fab fa-github"></i></a></li>
-          <li><a class="twitter" aria-label="Twitter" href="https://twitter.com/IAmChalise" target="_blank"><i class="fab fa-twitter"></i></a></li>
-          <!-- <li><a class="telegram" aria-label="Telegram" href="https://t.me/lifecode5" target="_blank"><i class="fab fa-telegram-plane"></i></a></li> -->
-          <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/40se_rajesh_19/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-          
-        </ul>
+  <main>
+    <section class="hero" id="home">
+      <div class="floating-particles" id="particles">
+        <div class="particles-layer" data-depth="0.22"></div>
+        <div class="particles-layer" data-depth="0.14"></div>
+        <div class="particles-layer" data-depth="0.06"></div>
       </div>
-    </div>
-<div class="image">
-    <img draggable="false" class="tilt" src="./assets/images/hero.png" alt="">
-</div>
-</section>
-<!-- hero section ends -->
-
-
-<!-- about section starts -->
-<section class="about" id="about">
-    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
-    
-    <div class="row">
-
-    <div class="image">
-        <img draggable="false" class="tilt" src="./assets/images/KCE080BCT026.jpg" alt="">
-    </div>
-    <div class="content">
-        <h3>I'm Rajesh</h3>
-        <span class="tag">Aspiring AI/ML Engineer </span>
-
-      <p>A passionate and dedicated Computer Engineering student with a strong interest in Artificial Intelligence and Machine Learning.</p>
-      <p>Enthusiastic about exploring algorithms and AI concepts that contribute to creating a smarter and more efficient world.</p>
-      <p>Currently at the beginner stage in AI, Machine Learning, and Deep Learning, with a continuous drive to expand knowledge and skills in these fields.</p>
-      <p>Sees the world through the lens of AI, turning imagination and innovative ideas into meaningful real-world solutions.</p>
-
-        <div class="box-container">
-            <!-- <div class="box">
-              <p><span> age: </span> 20</p>
-              <p><span> phone : </span> +977 9800722127</p>
-            </div> -->
-            <div class="box">
-              <p><span> email : </span> rajeshchalise19@gmail.com</p>
-              <p><span> place : </span> Bhaktapur, Nepal</p>
+      <div class="container hero-grid">
+        <div class="scroll-reveal">
+          <div class="eyebrow"><i class="fas fa-sparkles"></i> Aspiring AI Engineer</div>
+          <h1>Learning to Build Intelligent Systems with <span class="gradient-text">LLMs &amp; AI Agents</span></h1>
+          <p class="hero-subtitle">Aspiring AI Engineer | GenAI Learner | Agentic AI Hobbyist</p>
+          <div class="typing-line"><strong>Focused on</strong> <span id="typingText"></span><span class="typing-caret" aria-hidden="true"></span></div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="primaryCTA" href="#projects"><i class="fas fa-rocket"></i> View My Projects</a>
+            <a class="btn btn-secondary" href="#contact"><i class="fas fa-comments"></i> Let's Connect</a>
+          </div>
+          <div class="hero-points">
+            <div class="mini-card">
+              <strong>GenAI Focus</strong>
+              <span>Designing useful AI systems powered by LLMs and automation.</span>
             </div>
+            <div class="mini-card">
+              <strong>Agentic Thinking</strong>
+              <span>Building workflows that plan, act, and adapt with tools.</span>
+            </div>
+            <div class="mini-card">
+              <strong>Fast Learner</strong>
+              <span>Actively learning advanced GenAI, LLM engineering, and deployment.</span>
+            </div>
+          </div>
+          <div class="social-row">
+            <a href="https://github.com/ChaliseRajesh19" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/chaliserajes19/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:rajeshchalise19@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
         </div>
-        
-        <div class="resumebtn">
-            <a href="/" target="_blank" class="btn"><span>Resume</span>
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </div>
-
-    </div>
-    </div>
-</section>
-<!-- about section ends -->
-
-<!-- skills section starts -->
-<section id="skills">
-    <h2 class="skills-title"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
-    
-
-    <div class="skills-container">
-
-        <!-- Data Science -->
-        <div class="skill-item">
-            <div class="skill-box">
-                <img src="./assets/images/ml.jpg" class="skill-icon">
-                <div>
-                    <h3>Machine Learning</h3>
-                    <!-- <p>4+ Years XP</p> -->
-                </div>
-                <span class="arrow">⌄</span>
-            </div>
-
-            <div class="skill-details">
-                <div class="skill-detail"><span>Data Analysing</span><span>80%</span></div>
-                <div class="bar"><div style="width:80%"></div></div>
-
-                <div class="skill-detail"><span>Data Preprocessing</span><span>70%</span></div>
-                <div class="bar"><div style="width:70%"></div></div>
-
-                <div class="skill-detail"><span>EDA</span><span>70%</span></div>
-                <div class="bar"><div style="width:70%"></div></div>
-
-                <div class="skill-detail"><span>ML Algorithm</span><span>60%</span></div>
-                <div class="bar"><div style="width:60%"></div></div>
-
-                <div class="skill-detail"><span>Model Deployment</span><span>85%</span></div>
-                <div class="bar"><div style="width:85%"></div></div>
-            </div>
-        </div>
-
-        <!-- Frontend -->
-        <div class="skill-item">
-            <div class="skill-box">
-                <img src="./assets/images/programming.png" class="skill-icon">
-                <div>
-                    <h3>FrontEnd</h3>
-                    <!-- <p>2+ Years XP</p> -->
-                </div>
-                <span class="arrow">⌄</span>
-            </div>
-
-            <div class="skill-details">
-                <div class="skill-detail"><span>HTML</span><span>95%</span></div>
-                <div class="bar"><div style="width:95%"></div></div>
-
-                <div class="skill-detail"><span>CSS / Tailwind</span><span>65%</span></div>
-                <div class="bar"><div style="width:65%"></div></div>
-
-                <div class="skill-detail"><span>JavaScript</span><span>60%</span></div>
-                <div class="bar"><div style="width:60%"></div></div>
-
-                <div class="skill-detail"><span>React JS</span><span>40%</span></div>
-                <div class="bar"><div style="width:40%"></div></div>
-            </div>
-        </div>
-
-        <!-- Programming -->
-        <div class="skill-item">
-            <div class="skill-box">
-                <img src="./assets/images/ffff.png" class="skill-icon">
-                <div>
-                    <h3>Programming</h3>
-                    <!-- <p>3+ Years XP</p> -->
-                </div>
-                <span class="arrow">⌄</span>
-            </div>
-
-            <div class="skill-details">
-                <div class="skill-detail"><span>Python</span><span>80%</span></div>
-                <div class="bar"><div style="width:80%"></div></div>
-
-                <div class="skill-detail"><span>C/C++</span><span>90%</span></div>
-                <div class="bar"><div style="width:90%"></div></div>
-
-                
-            </div>
-        </div>
-
-        <!-- Backend -->
-        <div class="skill-item">
-            <div class="skill-box">
-                <img src="./assets/images/backend.png" class="skill-icon">
-                <div>
-                    <h3>BackEnd</h3>
-                    <!-- <p>3+ Years XP</p> -->
-                </div>
-                <span class="arrow">⌄</span>
-            </div>
-
-            <div class="skill-details">
-                <div class="skill-detail"><span>Node.js</span><span>50%</span></div>
-                <div class="bar"><div style="width:50%"></div></div>
-
-                <div class="skill-detail"><span>Express.js</span><span>50%</span></div>
-                <div class="bar"><div style="width:50%"></div></div>
-            </div>
-        </div>
-
-        <!-- Computing -->
-        <div class="skill-item">
-            <div class="skill-box">
-                <img src="./assets/images/computing.png" class="skill-icon">
-                <div>
-                    <h3>Computing</h3>
-                    <!-- <p>3+ Years XP</p> -->
-                </div>
-                <span class="arrow">⌄</span>
-            </div>
-
-            <div class="skill-details">
-                <div class="skill-detail"><span>DSA</span><span>50%</span></div>
-                <div class="bar"><div style="width:50%"></div></div>
-
-                <div class="skill-detail"><span>OS Concepts</span><span>50%</span></div>
-                <div class="bar"><div style="width:50%"></div></div>
-            </div>
-        </div>
-
-        <!-- Misc -->
-        <div class="skill-item">
-            <div class="skill-box">
-                <img src="./assets/images/tools.png" class="skill-icon">
-                <div>
-                    <h3>Tools</h3>
-                    <!-- <p>4+ Years XP</p> -->
-                </div>
-                <span class="arrow">⌄</span>
-            </div>
-
-            <div class="skill-details">
-                <div class="skill-detail"><span>Git & GitHub</span><span>90%</span></div>
-                <div class="bar"><div style="width:90%"></div></div>
-
-                <div class="skill-detail"><span>VS Code</span><span>80%</span></div>
-                <div class="bar"><div style="width:80%"></div></div>
-
-                <div class="skill-detail"><span> Render/Netlify/Streamlit</span><span>80%</span></div>
-                <div class="bar"><div style="width:80%"></div></div>
-
-                
-            </div>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- skills section ends -->
-
-
-<!-- education section starts -->
-<section class="education" id="education">
-
-  <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
-
-    <p class="qoute">Education is not the learning of facts, but the training of the mind to think.</p>
-
-    <div class="box-container">
-
-    <div class="box">
-        <div class="image">
-        <img draggable="false" src="./assets/images/educat/khwopa.jpg" alt="">
-        </div>
-        <div class="content">
-        <h3>Bachelor in Computer Engineering</h3>
-        <p>Khwopa College of Engineering | TU</p>
-        <h4>2024- | Pursuing</h4>
-        </div>
-    </div>
-
-    <div class="box">
-      <div class="image">
-      <img draggable="false" src="./assets/images/educat/Kanti.jpeg" alt="">
-      </div>
-      <div class="content">
-      <h3>Higher Secondary Education | HSEB</h3>
-      <p>Kanti Secondary School | NEB </p>
-      <h4>2021-2023 | Completed</h4>
-      </div>
-    </div>
-
-
-    <div class="box">
-      <div class="image">
-      <img draggable="false" src="./assets/images/educat/omla.jpeg" alt="">
-      </div>
-      <div class="content">
-      <h3>Secondary Education Examinationc | SEE</h3>
-      <p>Our Motherland Academy | NEB </p>
-      <h4>2021 | Completed</h4>
-      </div>
-    </div>
-
-</div>
-</section>
-<!-- education section ends -->
-
-
-<!-- work project section starts -->
-<section class="work" id="work">
-
-  <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
-
-  <div class="box-container">
-
-    <div class="box tilt">
-      <img draggable="false" src="./assets/images/projects/portfolio1.PNG" alt="" />
-      <div class="content">
-        <div class="tag">
-        <h3>Portfolio Website</h3>
-        </div>
-        <div class="desc">
-          <p>Personal portfolio website. Don't need much info about it, just scroll down. You're here only!</p>
-          <div class="btns">
-            <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+        <div class="hero-visual scroll-reveal">
+          <div class="visual-shell card">
+            <svg class="brain-svg" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Neural network illustration">
+              <defs>
+                <linearGradient id="brainGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#00d4ff"/>
+                  <stop offset="100%" stop-color="#7c3aed"/>
+                </linearGradient>
+              </defs>
+              <circle cx="256" cy="256" r="88" stroke="url(#brainGrad)" stroke-width="8" opacity="0.85"/>
+              <circle cx="256" cy="256" r="180" stroke="url(#brainGrad)" stroke-width="7" opacity="0.35"/>
+              <path d="M96 200c36-64 96-92 160-92s124 28 160 92M96 312c36 64 96 92 160 92s124-28 160-92" stroke="url(#brainGrad)" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+              <path d="M136 128c34 22 58 56 72 100M376 128c-34 22-58 56-72 100M136 384c34-22 58-56 72-100M376 384c-34-22-58-56-72-100" stroke="url(#brainGrad)" stroke-width="5" stroke-linecap="round" opacity="0.55"/>
+              <circle cx="122" cy="160" r="12" fill="#00d4ff"/>
+              <circle cx="390" cy="160" r="12" fill="#7c3aed"/>
+              <circle cx="122" cy="352" r="12" fill="#00d4ff"/>
+              <circle cx="390" cy="352" r="12" fill="#7c3aed"/>
+              <circle cx="256" cy="96" r="12" fill="#00d4ff"/>
+              <circle cx="256" cy="416" r="12" fill="#7c3aed"/>
+              <circle cx="256" cy="256" r="26" fill="url(#brainGrad)" opacity="0.95"/>
+            </svg>
           </div>
         </div>
       </div>
-    </div>
+      <div class="glow-line"></div>
+    </section>
 
-</div>
-
-<div class="viewall">
-  <a href="/projects" class="btn"><span>View All</span>
-    <i class="fas fa-arrow-right"></i>
-</a>
-</div>
-
-</section>
-<!-- work project section ends -->
-
-
-<section class="certificates" id="certificates">
-  <h2 class="heading"><i class="fas fa-certificate"></i> Certificates </h2>
-
-  <div class="certificates-container">
-    <!-- Certificate Item 1 -->
-    <div class="certificate-card">
-      <img src="./assets/images/certificates/web.jpg" alt="Backend Development Certificate">
-      <h3>Backend Software Developer</h3>
-      <button class="view-btn" onclick="viewCertificate('./assets/images/certificates/web.jpg')">View</button>
-    </div>
-
-    <!-- Certificate Item 2 -->
-    <div class="certificate-card">
-      <img src="./assets/images/certificates/kuhackfest.png" alt="Hackathon Participation Certificate">
-      <h3>Hackathon Participation </h3>
-      <button class="view-btn" onclick="viewCertificate('./assets/images/certificates/ds.jpg')">View</button>
-    </div>
-
-    <!-- Certificate Item 3 -->
-    <div class="certificate-card">
-      <img src="./assets/images/certificates/ml.webp" alt="Web Development Certificate">
-      <h3>Machine Learning Certificate</h3>
-      <button class="view-btn" onclick="viewCertificate('./assets/images/certificates/ml.webp')">View</button>
-    </div> 
-
-    
-
-
-  
-    <!-- Add more hidden certificates as needed -->
-  </div>
-
-  
-
-  <!-- Modal for viewing certificate -->
-  <div id="certificateModal" class="modal" style="display: none;">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="modalImage">
-</div>
-
-</section>
-
-
-
-
-<!-- experience section starts -->
-<!-- <section class="experience" id="experience">
-
-  <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
-
-  <div class="timeline"> -->
-
-   <!-- <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>Self Employed</h2>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading scroll-reveal">
+          <h2>About Me</h2>
+          <p>I’m an aspiring AI engineer learning to build practical systems with GenAI, LLMs, and agentic workflows.</p>
         </div>
-        <div class="desc">
-            <h3>Full Stack Developer</h3>
-            <p>Oct 2021 - present</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>Mapstreak Flyseas</h2>
-        </div>
-        <div class="desc">
-            <h3>Web Developer | Internship</h3>
-            <p>June 2021 - Dec 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>The Spark Foundation</h2>
-        </div>
-        <div class="desc">
-            <h3>Website Developer | Internship</h3>
-            <p>May 2021 - June 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>The Spark Foundation</h2>
-        </div>
-        <div class="desc">
-            <h3>Mobile Application Developer | Internship</h3>
-            <p>April 2021 - May 2021</p>
-        </div>
-      </div>
-    </div> 
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>Frshr Technologies</h2>
-        </div>
-        <div class="desc">
-            <h3>Wordpress Developer | Internship</h3>
-            <p>April 2021 - April 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>WonderingBlog</h2>
-        </div>
-        <div class="desc">
-            <h3>CUrrently Learning ML </h3>
-            <p>It takes some time</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="morebtn">
-    <a href="/experience" class="btn"><span>View All</span>
-      <i class="fas fa-arrow-right"></i>
-  </a>
-  </div>
-
-</div> -->
-
-<!-- </section> --> -->
-<!-- experience section ends -->
-
-<!-- contact section starts -->
-<section class="contact" id="contact">
-  
-  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
-
-  <div class="container">
-    <div class="content">
-      <div class="image-box">
-        <img draggable="false" src="./assets/images/contact1.png" alt="">
-      </div>
-    <form id="contact-form">
-      
-      <div class="form-group">
-        <div class="field">
-          <input type="text" name="name" placeholder="Name" required>
-          <i class='fas fa-user'></i>
-        </div>
-        <div class="field">
-          <input type="text" name="email" placeholder="Email" required>
-          <i class='fas fa-envelope'></i>
-        </div>
-        <div class="field">
-          <input type="text" name="phone" placeholder="Phone">
-          <i class='fas fa-phone-alt'></i>
-        </div>
-        <div class="message">
-        <textarea placeholder="Message" name="message" required></textarea>
-        <i class="fas fa-comment-dots"></i>
-        </div>
-        </div>
-      <div class="button-area">
-        <button type="submit">
-          Submit <i class="fa fa-paper-plane"></i></button>
-      </div>
-    </form>
-  </div>
-  </div>
-</section>
-<!-- contact section ends -->
-
-
-<!-- footer section starts -->
-<section class="footer">
-
-  <div class="box-container">
-
-      <div class="box">
-          <h3>Chalise Rajesh</h3>
-          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀. Connect with me over live chat!</p>
-          <p> All right reserved to Chalise Rajesh(2025).</p>
-      </div>
-
-      <div class="box">
-          <h3>quick links</h3>
-          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
-          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-          <a href="#work"><i class="fas fa-chevron-circle-right"></i> projects</a>
-          <a href="#certificates"><i class="fas fa-chevron-circle-right"></i> certificates</a>
-          <!-- <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a> -->
-      </div>
-
-      <div class="box">
-          <h3>contact info</h3>
-          <p> <i class="fas fa-phone"></i>+977 9800722127</p>
-          <p> <i class="fas fa-envelope"></i>rajeshchalise19@gmail.com</p>
-          <p> <i class="fas fa-map-marked-alt"></i>Kathmandu ,Nepal</p>
-          <div class="share">
-
-              <a href="https://www.linkedin.com/in/chaliserajes19" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
-              <a href="https://github.com/ChaliseRajesh19" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
-              <a href="mailto:rajeshchalise19@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
-              <a href="https://twitter.com/IAmChalise" class="fab fa-twitter" aria-label="Twitter" target="_blank"></a>
-              <!-- <a href="https://t.me/lifecode5" class="fab fa-telegram-plane" aria-label="Telegram" target="_blank"></a> -->
+        <div class="about-grid">
+          <div class="about-image card scroll-reveal">
+            <img src="./assets/images/KCE080BCT026.jpg" alt="Rajesh Chalise portrait">
           </div>
+          <div class="about-copy card scroll-reveal">
+            <h3>Hi, I’m Rajesh Chalise</h3>
+            <div class="tagline"><i class="fas fa-brain"></i> Aspiring AI Engineer | GenAI Learner</div>
+            <p>I’m exploring language models, retrieval systems, and agentic workflows through hands-on projects and prototypes. My current focus includes LLM engineering, prompt systems, and building reliable RAG pipelines.</p>
+            <p>I’m actively learning model evaluation, prompt design, and production patterns to grow into a professional AI engineering role.</p>
+            <p>Outside of AI, I enjoy solving engineering problems, crafting clean interfaces, and translating technical complexity into simple user experiences.</p>
+            <div class="about-meta">
+              <div class="meta-box"><span>Email</span>rajeshchalise19@gmail.com</div>
+              <div class="meta-box"><span>Location</span>Bhaktapur, Nepal</div>
+              <div class="meta-box"><span>Current Focus</span>GenAI, LLMs, Agents</div>
+              <div class="meta-box"><span>Availability</span>Open to AI internships & collaborations</div>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
+    </section>
 
-  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/chaliserajes19"> Rajesh Chalise</a></h1>
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading scroll-reveal">
+          <h2>Skills</h2>
+          <p>My core stack blends AI engineering skills with supporting technical abilities from the original portfolio.</p>
+        </div>
+        <div class="skills-wrap">
+          <div class="card skill-card scroll-reveal">
+            <h3>Core AI Skills</h3>
+            <div class="badge-grid">
+              <span class="badge"><i class="fas fa-comments"></i> Large Language Models (LLMs)</span>
+              <span class="badge"><i class="fas fa-wand-magic-sparkles"></i> Prompt Engineering</span>
+              <span class="badge"><i class="fas fa-database"></i> Retrieval-Augmented Generation (RAG)</span>
+              <span class="badge"><i class="fas fa-robot"></i> AI Agents &amp; Agentic Workflows</span>
+              <span class="badge"><i class="fas fa-project-diagram"></i> LangChain / LangGraph</span>
+              <span class="badge"><i class="fas fa-cloud"></i> OpenAI API / Gemini API / Hugging Face</span>
+              <span class="badge"><i class="fas fa-vector-square"></i> Vector Databases</span>
+              <span class="badge"><i class="fas fa-users-cog"></i> AutoGen / CrewAI</span>
+            </div>
+          </div>
+          <div class="card skill-card scroll-reveal">
+            <h3>Supporting Skills</h3>
+            <div class="badge-grid">
+              <span class="badge"><i class="fab fa-python"></i> Python</span>
+              <span class="badge"><i class="fas fa-code"></i> C / C++</span>
+              <span class="badge"><i class="fab fa-html5"></i> HTML</span>
+              <span class="badge"><i class="fab fa-css3-alt"></i> CSS / Tailwind</span>
+              <span class="badge"><i class="fab fa-js"></i> JavaScript</span>
+              <span class="badge"><i class="fab fa-react"></i> React JS</span>
+              <span class="badge"><i class="fab fa-node-js"></i> Node.js</span>
+              <span class="badge"><i class="fas fa-server"></i> Express.js</span>
+              <span class="badge"><i class="fas fa-chart-line"></i> Data Analysis</span>
+              <span class="badge"><i class="fas fa-drafting-compass"></i> EDA</span>
+              <span class="badge"><i class="fab fa-git-alt"></i> Git &amp; GitHub</span>
+              <span class="badge"><i class="fas fa-terminal"></i> VS Code</span>
+              <span class="badge"><i class="fas fa-cloud-upload-alt"></i> Render / Netlify / Streamlit</span>
+              <span class="badge"><i class="fas fa-laptop-code"></i> DSA / OS Concepts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</section>
-<!-- footer section ends -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading scroll-reveal">
+          <h2>Projects</h2>
+          <p>Learning projects and practical experiments that show how I’m growing into GenAI and agentic system development.</p>
+        </div>
+        <div class="project-grid" id="projectGrid">
+          <article class="card project-card ai">
+            <div class="project-thumb"><span class="featured">Featured</span><img src="/chaliserajesh.com.np/assets/images/projects/studybuddy.png" alt="AI Research Assistant"></div>
+            <div class="project-body">
+              <h3>AI STUDY BUDDY</h3>
+              <p>RAG-based assistant built with LangChain and ChromaDB that answers questions over custom documents with grounded responses.</p>
+              <div class="tech-row"><span class="tech">LangChain</span><span class="tech">ChromaDB</span><span class="tech">RAG</span><span class="tech">Python</span></div>
+              <div class="project-links"><a class="btn btn-secondary" href="https://github.com/ChaliseRajesh19/PDF-Chatbot-using-Langhchain.git" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a><a class="btn btn-primary" href="/index.html#contact"><i class="fas fa-external-link-alt"></i> Live Demo</a></div>
+            </div>
+          </article>
 
+          <article class="card project-card ai">
+            <div class="project-thumb"><span class="featured">Featured</span><img src="/chaliserajesh.com.np/assets/images/projects/exambuddy.jpg" alt="Autonomous Task Agent"></div>
+            <div class="project-body">
+              <h3>AI EXAM BUDDY</h3>
+              <p>An toolcalling AI agent using LangChain that uses tools, and executes workflows autonomously.</p>
+              <div class="tech-row"><span class="tech">LangChain</span><span class="tech">Agentic AI</span><span class="tech">Tool Use</span><span class="tech">LLMs</span></div>
+              <div class="project-links"><a class="btn btn-secondary" href="https://github.com/ChaliseRajesh19/ToolCalling-AGENT-USING-LANGCHAIN.git" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a><a class="btn btn-primary" href="/index.html#contact"><i class="fas fa-external-link-alt"></i> Live Demo</a></div>
+            </div>
+          </article>
 
-<!-- scroll top btn -->
-<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
-<!-- scroll back to top -->
+          <article class="card project-card data">
+            <div class="project-thumb"><img src="/chaliserajesh.com.np/assets/images/projects/device.png" alt="Device Prediction System"></div>
+            <div class="project-body">
+              <h3>Device Prediction System</h3>
+              <p>Machine learning model that predicts second-hand device pricing from specs and condition data.</p>
+              <div class="tech-row"><span class="tech">Machine Learning</span><span class="tech">Python</span><span class="tech">Prediction</span></div>
+              <div class="project-links"><a class="btn btn-primary" href="https://second-hand-mobile-tablet-prediction-app.onrender.com" target="_blank" rel="noreferrer"><i class="fas fa-eye"></i> Live Demo</a><a class="btn btn-secondary" href="https://github.com/ChaliseRajesh19/Second-Hand-Mobile-Tablet-Prediction-App.git" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a></div>
+            </div>
+          </article>
 
+          <article class="card project-card web">
+            <div class="project-thumb"><img src="/chaliserajesh.com.np/assets/images/projects/weather-app-preview.png" alt="Weather App"></div>
+            <div class="project-body">
+              <h3>Weather App</h3>
+              <p>A clean weather application delivering live conditions and forecasts with a polished dashboard-style interface.</p>
+              <div class="tech-row"><span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span></div>
+              <div class="project-links"><a class="btn btn-primary" href="https://chaliserajesh19.github.io/Weather-App/" target="_blank" rel="noreferrer"><i class="fas fa-eye"></i> Live Demo</a><a class="btn btn-secondary" href="https://github.com/ChaliseRajesh19/Weather-App.git" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a></div>
+            </div>
+          </article>
+        </div>
+        <div style="margin-top:2rem;display:flex;justify-content:center;">
+          <a class="btn btn-secondary" href="/chaliserajesh.com.np/projects"><i class="fas fa-layer-group"></i> Explore More Projects</a>
+        </div>
+      </div>
+    </section>
 
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
-<!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-heading scroll-reveal">
+          <h2>My AI Learning Journey</h2>
+          <p>A clear roadmap of where I’ve been, what I’m learning now, and what comes next.</p>
+        </div>
+        <div class="journey-layout">
+          <div class="timeline scroll-reveal">
+            <div class="timeline-item">
+              <span class="status done">Completed</span>
+              <h3>Python Fundamentals</h3>
+              <p>Built a strong base in Python for AI, automation, scripting, and model experimentation.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="status done">Completed</span>
+              <h3>Machine Learning Basics</h3>
+              <p>Explored core ML workflows, feature engineering, evaluation, and practical data handling.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="status progress">In Progress</span>
+              <h3>LLM Engineering</h3>
+              <p>Learning how to design robust LLM applications with prompts, context, retrieval, and evaluation.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="status progress">In Progress</span>
+              <h3>Building AI Agents</h3>
+              <p>Studying autonomous workflows, tool calling, memory, planning, and agent orchestration patterns.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="status next">Next</span>
+              <h3>RAG Systems</h3>
+              <p>Creating retrieval pipelines that connect custom knowledge sources to AI assistants.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="status next">Next</span>
+              <h3>Fine-tuning LLMs</h3>
+              <p>Learning optimization workflows for domain-specific behavior and improved model performance.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="status next">Next</span>
+              <h3>MLOps &amp; Deployment</h3>
+              <p>Focusing on production deployment, monitoring, observability, and maintainable AI delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- typed.js cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <section class="section" id="building">
+      <div class="container">
+        <div class="banner card scroll-reveal">
+          <p><strong>🚀 Currently building AI Agent projects</strong> | Open to AI Engineer internships &amp; collaborations</p>
+          <a class="btn btn-primary" href="https://github.com/ChaliseRajesh19" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </section>
 
-<!-- particle.js links -->
-<script src="./assets/js/particles.min.js"></script>
-<script src="./assets/js/app.js"></script>
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-heading scroll-reveal">
+          <h2>Contact</h2>
+          <p>Reach out if you want to collaborate on GenAI, AI agents, or internship opportunities.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="card contact-card scroll-reveal">
+            <h3 class="section-title" style="margin-top:0;font-family:'Space Grotesk',sans-serif;font-size:2.4rem;">Let’s build something intelligent</h3>
+            <p style="color:var(--muted);font-size:1.6rem;line-height:1.8;">I’m open to AI Engineer internships, GenAI experiments, and collaboration on LLM or agentic applications. If you have an idea worth building, let’s talk.</p>
+            <div class="contact-list">
+              <a class="contact-item" href="https://github.com/ChaliseRajesh19" target="_blank" rel="noreferrer">
+                <i class="fab fa-github"></i>
+                <div><strong>GitHub</strong><span>ChaliseRajesh19</span></div>
+              </a>
+              <a class="contact-item" href="https://www.linkedin.com/in/chaliserajes19/" target="_blank" rel="noreferrer">
+                <i class="fab fa-linkedin-in"></i>
+                <div><strong>LinkedIn</strong><span>Chalise Rajesh</span></div>
+              </a>
+              <a class="contact-item" href="mailto:rajeshchalise19@gmail.com">
+                <i class="fas fa-envelope"></i>
+                <div><strong>Email</strong><span>rajeshchalise19@gmail.com</span></div>
+              </a>
+            </div>
+          </div>
+          <div class="card form-card scroll-reveal">
+            <form id="contactForm">
+              <div class="field"><i class="fas fa-user"></i><input type="text" name="name" placeholder="Your name" required></div>
+              <div class="field"><i class="fas fa-envelope"></i><input type="email" name="email" placeholder="Your email" required></div>
+              <div class="field"><i class="fas fa-phone-alt"></i><input type="tel" name="phone" placeholder="Phone number"></div>
+              <div class="field"><i class="fas fa-comment-dots" style="top:1.8rem;transform:none;"></i><textarea name="message" placeholder="Tell me about your idea" required></textarea></div>
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+                <a class="btn btn-secondary" href="mailto:rajeshchalise19@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<!-- vanilla tilt.js links -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">
+          <h3>Learning to build useful AI systems.</h3>
+          <p>Rajesh Chalise is an aspiring AI engineer focused on GenAI, LLMs, and agentic workflows, building toward real-world products and internship-ready experience.</p>
+        </div>
+        <div class="footer-links">
+          <a class="footer-chip" href="https://github.com/ChaliseRajesh19" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+          <a class="footer-chip" href="https://www.linkedin.com/in/chaliserajes19/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+          <a class="footer-chip" href="mailto:rajeshchalise19@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-meta"><span class="footer-dot" aria-hidden="true"></span><span>Open to AI internships, collaborations, and learning opportunities.</span></div>
+          <div>© <span id="footerYear"></span> Rajesh Chalise</div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<!-- scroll reveal anim -->
-<script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    const typingWords = [
+      "LLM Applications",
+      "AI Agents",
+      "RAG Pipelines",
+      "Agentic Workflows",
+      "Generative AI Solutions"
+    ];
 
-<script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
-    ></script>
+    const typingTarget = document.getElementById("typingText");
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
 
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
+    function runTyping() {
+      const currentWord = typingWords[wordIndex];
+      const currentText = currentWord.slice(0, charIndex);
+      typingTarget.textContent = currentText;
 
-<script src="./assets/js/script.js"></script>
+      if (!deleting && charIndex < currentWord.length) {
+        charIndex += 1;
+        setTimeout(runTyping, 75);
+        return;
+      }
 
+      if (!deleting && charIndex === currentWord.length) {
+        deleting = true;
+        setTimeout(runTyping, 1100);
+        return;
+      }
 
+      if (deleting && charIndex > 0) {
+        charIndex -= 1;
+        setTimeout(runTyping, 40);
+        return;
+      }
+
+      if (deleting && charIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % typingWords.length;
+        setTimeout(runTyping, 250);
+      }
+    }
+
+    runTyping();
+
+    const navToggle = document.getElementById("navToggle");
+    const navMenu = document.getElementById("navMenu");
+    const footerYear = document.getElementById("footerYear");
+
+    if (footerYear) {
+      footerYear.textContent = new Date().getFullYear();
+    }
+
+    navToggle.addEventListener("click", () => {
+      const expanded = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", String(!expanded));
+      navMenu.classList.toggle("open");
+    });
+
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const footer = document.querySelector('.footer');
+    if (footer) {
+      requestAnimationFrame(() => footer.classList.add('scroll-reveal', 'show'));
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".scroll-reveal").forEach((el) => observer.observe(el));
+
+    const sections = [...document.querySelectorAll("section[id]")];
+    const navLinks = [...document.querySelectorAll(".nav a")];
+
+    const activeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`));
+      });
+    }, { threshold: 0.55 });
+
+    sections.forEach((section) => activeObserver.observe(section));
+
+    const particlesContainer = document.getElementById("particles");
+    const particleCount = window.matchMedia("(max-width: 560px)").matches ? 16 : 28;
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement("span");
+      particle.className = "particle";
+      const left = Math.random() * 100;
+      const bottom = Math.random() * 100;
+      const size = 0.35 + Math.random() * 0.55;
+      const duration = 14 + Math.random() * 18;
+      const delay = Math.random() * 8;
+      const dx = `${(Math.random() * 160 - 80).toFixed(0)}px`;
+      particle.style.left = `${left}%`;
+      particle.style.bottom = `${bottom}%`;
+      particle.style.width = `${size}rem`;
+      particle.style.height = `${size}rem`;
+      particle.style.animationDuration = `${duration}s`;
+      particle.style.animationDelay = `${delay}s`;
+      particle.style.setProperty("--dx", dx);
+      particle.style.opacity = String(0.25 + Math.random() * 0.55);
+      particlesContainer.appendChild(particle);
+    }
+
+    document.getElementById("contactForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      alert("Thanks for reaching out. I’ll get back to you soon.");
+      event.target.reset();
+    });
+
+    // Enhanced particle spawn with layers and mouse parallax
+    (function layeredParticles(){
+      const container = document.getElementById('particles');
+      const layers = Array.from(container.querySelectorAll('.particles-layer'));
+      const counts = [14, 10, 6];
+
+      layers.forEach((layer, li) => {
+        const cnt = counts[li] || 8;
+        for (let i = 0; i < cnt; i++) {
+          const p = document.createElement('span');
+          p.className = 'particle';
+          const left = Math.random() * 100;
+          const bottom = Math.random() * 100;
+          const size = (0.28 + Math.random() * 0.6) * (1 - li * 0.18);
+          const duration = 12 + Math.random() * 18;
+          const delay = Math.random() * 8;
+          const dx = `${(Math.random() * 240 - 120).toFixed(0)}px`;
+          p.style.left = `${left}%`;
+          p.style.bottom = `${bottom}%`;
+          p.style.width = `${size}rem`;
+          p.style.height = `${size}rem`;
+          p.style.animationDuration = `${duration}s`;
+          p.style.animationDelay = `${delay}s`;
+          p.style.setProperty('--dx', dx);
+          p.style.opacity = String(0.18 + Math.random() * 0.6);
+          // color variation per layer
+          if (li === 0) p.style.background = 'rgba(0,212,255,0.78)';
+          if (li === 1) p.style.background = 'rgba(124,58,237,0.64)';
+          if (li === 2) p.style.background = 'rgba(79,70,229,0.42)';
+          layer.appendChild(p);
+        }
+      });
+
+      // parallax on mouse move
+      let mouseX = 0, mouseY = 0;
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth) - 0.5;
+        mouseY = (e.clientY / window.innerHeight) - 0.5;
+        layers.forEach((layer) => {
+          const depth = parseFloat(layer.getAttribute('data-depth')) || 0.12;
+          layer.style.transform = `translate3d(${mouseX * depth * 60}px, ${mouseY * depth * 30}px, 0)`;
+        });
+      });
+    })();
+
+    // Brain tilt based on pointer movement over visual-shell
+    (function brainParallax(){
+      const shell = document.querySelector('.visual-shell');
+      const brain = document.querySelector('.brain-svg');
+      if (!shell || !brain) return;
+      shell.addEventListener('pointermove', (e) => {
+        const rect = shell.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        const rx = (y * 6).toFixed(2);
+        const ry = (x * -8).toFixed(2);
+        brain.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+      });
+      shell.addEventListener('pointerleave', () => {
+        brain.style.transform = '';
+      });
+    })();
+
+    // CTA micro-pulse trigger
+    (function ctaPulse(){
+      const cta = document.getElementById('primaryCTA');
+      if (!cta) return;
+      let active = false;
+      setInterval(() => {
+        cta.classList.toggle('pulse');
+      }, 4200);
+      cta.addEventListener('pointerenter', () => cta.classList.add('pulse'));
+      cta.addEventListener('pointerleave', () => cta.classList.remove('pulse'));
+    })();
+  </script>
 </body>
 </html>

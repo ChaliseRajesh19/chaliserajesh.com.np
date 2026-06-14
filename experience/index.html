@@ -1,224 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link id='favicon' rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
-
-    <title>Experience | Rajesh Chalise</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050510">
+  <title>Experience | Rajesh Chalise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    :root{--bg:#050510;--surface:rgba(255,255,255,.06);--border:rgba(255,255,255,.12);--text:#f5f7ff;--muted:#b7bdd5;--accent:#00d4ff;--accent-2:#7c3aed;--radius:24px;--shadow:0 24px 80px rgba(0,0,0,.45)}*{box-sizing:border-box}html{font-size:62.5%;scroll-behavior:smooth}body{margin:0;font-family:Inter,sans-serif;background:linear-gradient(180deg,#050510 0%,#060714 40%,#050510 100%);color:var(--text)}a{color:inherit;text-decoration:none}.container{width:min(calc(100% - 3.2rem),1180px);margin-inline:auto;position:relative;z-index:1}.site-header{position:sticky;top:0;z-index:10;backdrop-filter:blur(18px);background:rgba(5,5,16,.78);border-bottom:1px solid rgba(255,255,255,.08)}.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.6rem 0}.brand{display:flex;align-items:center;gap:1rem;font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700}.brand i{width:3.8rem;height:3.8rem;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#081018}.nav{display:flex;gap:.8rem;flex-wrap:wrap}.nav a{padding:1rem 1.4rem;border-radius:999px;color:var(--muted);font-size:1.35rem;font-weight:600}.nav a:hover,.nav a.active{color:#fff;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(0,212,255,.2),0 0 24px rgba(0,212,255,.12)}.hero{padding:5rem 0 2rem}.eyebrow{display:inline-flex;align-items:center;gap:.8rem;padding:.8rem 1.2rem;border-radius:999px;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.2);font-size:1.2rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.hero h1{margin:1.5rem 0 1rem;font-family:'Space Grotesk',sans-serif;font-size:clamp(3.2rem,7vw,5.8rem);line-height:.98}.gradient-text{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:70rem;color:var(--muted);font-size:1.6rem;line-height:1.8}.section{padding:3rem 0 6rem}.section-heading{text-align:center;margin-bottom:3rem}.section-heading h2{margin:0;font-family:'Space Grotesk',sans-serif;font-size:clamp(2.8rem,4vw,4.2rem)}.section-heading p{margin:1rem auto 0;max-width:70rem;color:var(--muted);font-size:1.55rem;line-height:1.8}.timeline{position:relative;display:grid;gap:1.8rem;padding-left:2.4rem}.timeline::before{content:'';position:absolute;left:.8rem;top:.4rem;bottom:.4rem;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent-2));box-shadow:0 0 24px rgba(0,212,255,.3)}.item{position:relative;padding:1.8rem 1.8rem 1.8rem 2rem;border-radius:1.8rem;background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(20px);box-shadow:var(--shadow)}.item::before{content:'';position:absolute;left:-2.7rem;top:2.2rem;width:1rem;height:1rem;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 0 6px rgba(0,212,255,.12)}.item h3{margin:0 0 .6rem;font-size:1.9rem;font-family:'Space Grotesk',sans-serif}.item p{margin:0;color:var(--muted);font-size:1.45rem;line-height:1.7}.tag{display:inline-flex;align-items:center;gap:.8rem;margin-bottom:1rem;padding:.5rem .9rem;border-radius:999px;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.tag.current{background:rgba(0,212,255,.12);color:#cffafe}.tag.learning{background:rgba(124,58,237,.14);color:#e9d5ff}.tag.foundation{background:rgba(74,222,128,.12);color:#bbf7d0}.banner{margin-top:3rem;padding:2rem;border-radius:var(--radius);background:linear-gradient(135deg,rgba(0,212,255,.12),rgba(124,58,237,.12));border:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:1.6rem;flex-wrap:wrap}.banner p{margin:0;font-size:1.7rem;line-height:1.7;color:#f0f4ff;flex:1 1 42rem}.btn{display:inline-flex;align-items:center;justify-content:center;gap:.8rem;padding:1.2rem 1.6rem;border-radius:999px;border:1px solid transparent;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#071018;font-weight:700;font-size:1.35rem;box-shadow:0 0 26px rgba(0,212,255,.16)}.btn:hover{transform:translateY(-2px)}.footer{padding:4rem 0 5rem;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:1.35rem;text-align:center}.floating-particles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}.particle{position:absolute;width:.6rem;height:.6rem;border-radius:50%;background:rgba(0,212,255,.65);box-shadow:0 0 18px rgba(0,212,255,.55);animation:drift linear infinite;opacity:.8}@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(var(--dx),-120vh,0) scale(.6)}}@media (max-width:980px){html{font-size:58%}.nav{display:none}.nav.open{display:flex;position:absolute;top:7rem;left:1.6rem;right:1.6rem;padding:1rem;background:rgba(5,5,16,.96);border:1px solid rgba(255,255,255,.08);border-radius:1.8rem;box-shadow:var(--shadow)}}
+  </style>
 </head>
-<body oncontextmenu="return false">
-
-<!-- navbar starts -->
-<header>
-        <a href="/" class="logo"><i class="fab fa-node-"></i> Chalise</a>
-
-        <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <ul>
-            <li><a href="/#home">Home</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#skills">Skills</a></li>
-            <li><a href="/#education">Education</a></li>
-            <li><a href="/#work">Project</a></li>
-            <li><a href="/#certificates">Certificates</a></li>
-            <li><a class="active" href="/#experience">Experience</a></li>
-            <li><a href="/#contact">Contact</a></li>
-            </ul>
-        </nav>
-</header>
-<!-- navbar ends -->
-
-<!-- experience section starts -->
-<section class="experience" id="experience">
-
-  <h2 class="heading"><i class="fas fa-briefcase"></i> Experience</h2>
-  <div class="quote">
-      <span>every experience in your life is being orchestrated to teach you something you need to know to move forward.</span>
-  </div>
-
-  <div class="timeline">
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>Self Employed</h2>
-        </div>
-        <div class="desc">
-            <h3>Full Stack Developer</h3>
-            <p>Oct 2021 - present</p>
-        </div>
-      </div>
+<body>
+  <div class="floating-particles" id="particles"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/index.html"><i class="fas fa-robot"></i> Rajesh Chalise</a>
+      <nav class="nav" id="navMenu">
+        <a href="/index.html#home">Home</a>
+        <a href="/index.html#about">About</a>
+        <a href="/index.html#skills">Skills</a>
+        <a href="/projects/index.html">Projects</a>
+        <a href="/experience/index.html" class="active">Experience</a>
+        <a href="/index.html#contact">Contact</a>
+      </nav>
     </div>
-
-    <div class="container right">
-        <div class="content">
-          <div class="tag">
-            <h2>DevIncept (Top Contributor)</h2>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow"><i class="fas fa-briefcase"></i> Experience & Growth</div>
+        <h1>Practical <span class="gradient-text">AI Engineering</span> Journey</h1>
+        <p>My experience path is less about traditional roles and more about building, contributing, and learning through real projects, open-source work, and technical problem solving.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Timeline</h2>
+          <p>A simplified, AI-focused view of how I’ve been building skills and experience.</p>
+        </div>
+        <div class="timeline">
+          <div class="item">
+            <span class="tag current">Current</span>
+            <h3>AI Engineer Portfolio Builder</h3>
+            <p>Designing and refining a portfolio around GenAI, LLM applications, and agentic workflows while continuing to add more advanced AI projects.</p>
           </div>
-          <div class="desc">
-              <h3>DCP 2021 Contributor | Open Source Program</h3>
-              <p>July 2021 - October 2021</p>
+          <div class="item">
+            <span class="tag learning">Learning / Building</span>
+            <h3>GenAI, RAG, and Agentic Systems</h3>
+            <p>Actively building with prompt engineering, retrieval systems, multi-agent orchestration, and deployment-focused experimentation.</p>
           </div>
-        </div>
-      </div>
-
-      <div class="container left">
-        <div class="content">
-          <div class="tag">
-            <h2>LetsGrowMore Summer of Code</h2>
+          <div class="item">
+            <span class="tag foundation">Foundational Engineering</span>
+            <h3>Web & Software Foundations</h3>
+            <p>Built practical grounding in HTML, CSS, JavaScript, Python, C/C++, Node.js, and core engineering concepts that support AI product work.</p>
           </div>
-          <div class="desc">
-              <h3>LGM-SOC'21 Participant | Open Source Program</h3>
-              <p>June 2021 - August 2021</p>
-          </div>
-        </div>
-      </div>
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>Mapstreak Flyseas</h2>
-        </div>
-        <div class="desc">
-            <h3>Web Developer | Internship</h3>
-            <p>June 2021 - Dec 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>The Spark Foundation</h2>
-        </div>
-        <div class="desc">
-            <h3>Website Developer | Internship</h3>
-            <p>May 2021 - June 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>The Spark Foundation</h2>
-        </div>
-        <div class="desc">
-            <h3>Mobile Application Developer | Internship</h3>
-            <p>April 2021 - May 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>Frshr Technologies</h2>
-        </div>
-        <div class="desc">
-            <h3>Wordpress Developer | Internship</h3>
-            <p>April 2021 - April 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>WonderingBlog</h2>
-        </div>
-        <div class="desc">
-            <h3>Web Development & SEO | Internship</h3>
-            <p>March 2021 - April 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-        <div class="content">
-          <div class="tag">
-            <h2>Hacktoberfest 2020</h2>
-          </div>
-          <div class="desc">
-              <h3>Contributor | Open Source Program</h3>
-              <p>October 2020 - November 2020</p>
+          <div class="item">
+            <span class="tag current">Open Source Mindset</span>
+            <h3>Community-Driven Growth</h3>
+            <p>Continuing to learn through collaborative projects, code sharing, and iterative improvement of AI tools and interfaces.</p>
           </div>
         </div>
+        <div class="banner">
+          <p><strong>Open to AI Engineer internships &amp; collaborations</strong> with teams building GenAI products, AI agents, and intelligent systems.</p>
+          <a class="btn" href="mailto:rajeshchalise19@gmail.com"><i class="fas fa-envelope"></i> Contact Me</a>
+        </div>
       </div>
-
-  </div>
-
-  <div class="morebtn">
-  <a href="/#contact" class="btn">
-    <i class="fas fa-arrow-left"></i>
-    <span>Back to Experience</span>
-  </a>
-</div>
-
-</div>
-</section>
-<!-- experience section ends -->
-
-<!-- footer section starts -->
-<!-- <section class="footer">
-
-  <div class="box-container">
-
-      <div class="box">
-          <h3>Jigar's Portfolio</h3>
-          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀. Connect with me over live chat!</p>
-      </div>
-
-      <div class="box">
-          <h3>quick links</h3>
-          <a href="/#home"><i class="fas fa-chevron-circle-right"></i> home</a>
-          <a href="/#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-          <a href="/#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-          <a href="/#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-          <a href="/#work"><i class="fas fa-chevron-circle-right"></i> work</a>
-          <a href="/#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
-      </div>
-
-      <div class="box">
-          <h3>contact info</h3>
-          <p> <i class="fas fa-phone"></i>+91 704-302-4736</p>
-          <p> <i class="fas fa-envelope"></i>jigarsable21@gmail.com</p>
-          <p> <i class="fas fa-map-marked-alt"></i>Pune, India-412206</p>
-          <div class="share">
-
-            <a href="https://www.linkedin.com/in/jigar-sable" class="fab fa-linkedin" target="_blank"></a>
-            <a href="https://github.com/jigar-sable" class="fab fa-github" target="_blank"></a>
-            <a href="mailto:jigarsable21@gmail.com" class="fas fa-envelope" target="_blank"></a>
-            <a href="https://twitter.com/jigar_sable" class="fab fa-twitter" target="_blank"></a>
-            <a href="https://t.me/lifecode5" class="fab fa-telegram-plane" target="_blank"></a>
-          </div>
-      </div>
-  </div>
-
-  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/jigar-sable"> jigar sable</a></h1>
-
-</section> -->
-<!-- footer section ends -->
-
-<!-- scroll top btn -->
-<a href="#experience" class="fas fa-angle-up" id="scroll-top"></a>
-<!-- scroll back to top -->
-
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
-<!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- scroll reveal anim -->
-<script src="https://unpkg.com/scrollreveal"></script>
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
-
-<script src="./script.js"></script>
-
+    </section>
+  </main>
+  <footer class="footer"><div class="container">Rajesh Chalise • AI Engineer portfolio</div></footer>
+  <script>
+    const particles = document.getElementById('particles');
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('span');
+      particle.className = 'particle';
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.bottom = `${Math.random() * 100}%`;
+      particle.style.width = `${0.35 + Math.random() * 0.5}rem`;
+      particle.style.height = particle.style.width;
+      particle.style.setProperty('--dx', `${(Math.random() * 160 - 80).toFixed(0)}px`);
+      particle.style.animationDuration = `${14 + Math.random() * 16}s`;
+      particle.style.animationDelay = `${Math.random() * 8}s`;
+      particles.appendChild(particle);
+    }
+  </script>
 </body>
 </html>
